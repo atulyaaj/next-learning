@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Gallery</title>
+    <style>
+        .gallery {
+            width: 500px;
+            margin: 50px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .item {
+            width: 180px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+        }
+
+        #creditsBox {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <script>
+        let credits = 30;
+        let buyButtons;
+
+        function updateButtons() {
+            buyButtons.forEach(btn => {
+                btn.disabled = credits < 10;
+            });
+        }
+
+        function init() {
+            const creditDisplay = document.getElementById("credits");
+
+            buyButtons = document.querySelectorAll(".buyBtn");
+
+            buyButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const price = Number(this.dataset.price);
+                    if (credits >= price) {
+                        credits -= price;
+                        creditDisplay.textContent = credits;
+                        alert("Purchased for " + price + " credits!");
+                        updateButtons();
+                    }
+                });
+            });
+            updateButtons();
+        }
+
+        document.addEventListener("DOMContentLoaded", init);
+    </script>
+</head>
+
+<body>
+
+    <h2 id="creditsBox">Credits: <span id="credits">30</span></h2>
+
+    <div class="gallery">
+        <div class="item">
+            <h3>Item 1</h3>
+            <p>Price: 15</p>
+            <button class="buyBtn" data-price="15">Buy</button>
+        </div>
+
+        <div class="item">
+            <h3>Item 2</h3>
+            <p>Price: 25</p>
+            <button class="buyBtn" data-price="25">Buy</button>
+        </div>
+
+        <div class="item">
+            <h3>Item 3</h3>
+            <p>Price: 10</p>
+            <button class="buyBtn" data-price="10">Buy</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
