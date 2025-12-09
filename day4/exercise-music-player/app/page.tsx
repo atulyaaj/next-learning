@@ -103,7 +103,7 @@ export default function Home() {
         >
           {currentSong
             ? songs.find(s => s.id === currentSong)?.title
-            : "None"}
+            : "Waiting to play..."}
         </div>
       </div>
 
