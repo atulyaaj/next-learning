@@ -1,0 +1,10 @@
+.box {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    font-family: sans-serif;
+    font-size: 24px;
+    background-color: darkblue;
+    color: rgb(228, 227, 243);
+}

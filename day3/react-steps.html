@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Steps</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- 
+    -->
+    <style>
+        .box {
+            color: darkorange;
+            font-family: sans-serif;
+        }
+    </style>
+    <script type="text/babel">
+        /* function init() {
+            let heading = document.createElement("h1");
+            heading.innerText = "Welcome to your life !!!";
+            heading.setAttribute("class", "box");
+
+            let app = document.getElementById("app");
+            app.appendChild(heading);
+        }
+        document.addEventListener("DOMContentLoaded", init); */
+
+
+        /*
+        function init() {
+            let heading = React.createElement("h1", {class:'box'}, "Welcome to React");
+            ReactDOM.createRoot(document.getElementById('app')).render(heading);
+        }
+        document.addEventListener("DOMContentLoaded", init); 
+        */
+
+        /*
+        let list = <ul>
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3</li>
+            <li>List Item 4</li>
+            <li>List Item 5</li>
+        </ul>
+        ReactDOM.createRoot(document.getElementById('app')).render(list);
+        */
+
+        let List = () => {
+            let title = "Valtech"
+            return <ul>
+                <li>{title}</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+                <li>List Item 4</li>
+                <li>List Item 5</li>
+            </ul>
+        }
+        ReactDOM.createRoot(document.getElementById('app')).render(<div><List /><List /><List /></div>);
+    </script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+</html>
